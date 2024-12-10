@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link id="favicon" rel="icon" type="image/png" href="./hearts.png">
+    <title id="title">Te amo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      let titles = [document.getElementById('title').text, "@Kerlane"];
+      let index = 0;
+      let icons = [document.getElementById('favicon').href,'./love.png'];
+
+      $(document).ready(function() {
+        function playAudio() {
+          var audioElement = document.getElementById('audio');
+          audioElement.play().then(function(){}).catch(function(error) {
+            console.error('Failed to play audio:', error);
+          });
+        }
+        $('#play-button').click(function(){playAudio();});
+      });
+
+      function animateTitle() {
+        const link = document.createElement('link');
+        link.id = 'favicon';
+        link.rel = 'icon';
+        link.type = 'image/png';
+        link.href = icons[index];
+        document.head.appendChild(link);
+        document.title = titles[index];
+        index = (index + 1) % titles.length;
+      };setInterval(animateTitle, 1000);
+  </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="col-12">
+              <div class="valentines-day-card">
+                <div class="clouds"></div>
+                <div class="hearts">
+                  <div class="heartOne">
+                    <div class="left-side"></div>
+                    <div class="right-side"></div>
+                  </div>
+                  <div class="heartTwo">
+                    <div class="left-side"></div>
+                    <div class="right-side"></div>
+                  </div>
+                  <div class="heartThree">
+                    <div class="left-side"></div>
+                    <div class="right-side"></div>
+                  </div>
+                  <div class="heartFour">
+                    <div class="left-side"></div>
+                    <div class="right-side"></div>
+                  </div>
+                  <div class="heartFive">
+                    <div class="left-side"></div>
+                    <div class="right-side"></div>
+                  </div>
+                </div>
+                <div class="text"><span>Kerlane, só pra não esquecer do</br> dia!</div>
+            </div>
+            <p class="hover animate-charcter">vou te falar de novo</p>
+            <button class="btn btn-secondary" id="play-button">Estou aqui...</button>
+            <audio id="audio" src="./pra_te_amar.mp3" type="audio/mpeg"></audio>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
